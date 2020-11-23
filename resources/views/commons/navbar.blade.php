@@ -28,7 +28,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 {{-- ユーザ登録ページへのリンク --}}
-                <li class="nav-item nav-item-Mywv"><a href="#" class="nav-link">新規登録</a></li>
+                <li class="nav-item nav-item-Mywv">{!! link_to_route('signup.get','新規登録',[],['class'=>'nav-link']) !!}</li>
                 {{-- ログインページへのリンク --}}
                 <li class="nav-item nav-item-Mywv"><a href="#" class="nav-link">ログイン</a></li>
             </ul>

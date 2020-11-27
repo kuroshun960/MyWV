@@ -71,11 +71,15 @@ a:hover {
     }
     
     .artistPanel{
-        width:200px;
-        height:200px;
+        width:180px;
+        height:180px;
         background-color: #C4C4C4;
         border-radius: 10px;
         margin: 0px 10px;
+        overflow: hidden;
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
     
     .artistList__row__items p{
@@ -83,8 +87,8 @@ a:hover {
     }
     
     .artistPanel__add{
-        width:200px;
-        height:200px;
+        width:180px;
+        height:180px;
         border: solid #C4C4C4 2px;
         border-radius: 10px;
         margin: 0px 10px;

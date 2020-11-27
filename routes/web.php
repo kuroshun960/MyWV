@@ -60,4 +60,5 @@ use Illuminate\Support\Facades\Route;
     Route::get('/upload/image', 'ImageController@input')->name('image.get');
     //画像ファイルをアップロードする処理のルーティング
     Route::post('/upload/image', 'ImageController@upload');
-    //上記までを追記
+    //アップロードした画像ファイルを表示するページのルーティング
+    Route::get('/', 'ImageController@output');

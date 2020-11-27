@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/*--------------------------------------------------------------------------
+    S3に格納する画像ファイルのパスとログイン中のユーザIDを格納するimagesテーブル
+--------------------------------------------------------------------------*/
+
 class CreateArtistsTable extends Migration
 {
     /**
@@ -16,9 +20,9 @@ class CreateArtistsTable extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('path');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
             
             // 外部キー制約

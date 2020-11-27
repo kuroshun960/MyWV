@@ -13,17 +13,21 @@
         </div>
     </div>
     
+    
     <div class="artistList">
-        <div class="artistList__row d-flex">
+        <div class="artistList__row d-flex flex-wrap col-sm-12">
+            
+            @foreach ($user_images as $user_image)
+
             <div class="artistList__row__items">
-                <a href="#"><div class="artistPanel"></div></a>
+                <a href="#"><div class="artistPanel">
+                    <img src="{{ $user_image['path'] }}" width="100%"></div>
+                </a>
                 <p><a href="#">artist_Name</a></p>
             </div>
-                    
-            <div class="artistList__row__items">
-                <a href="#"><div class="artistPanel"></div></a>
-                <p><a href="#">artist_Name</a></p>
-            </div>
+
+            @endforeach
+            
                     
             <div class="artistList__row__items">
                 <a href="#"><div class="artistPanel"></div></a>
@@ -41,7 +45,4 @@
     </div>
     
 
-        
-
-    
 </div>

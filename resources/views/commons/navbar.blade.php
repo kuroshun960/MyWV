@@ -1,40 +1,3 @@
-<style>
-
-    .headerMywvLogo{
-        color: #464646;
-        font-weight: bold; 
-    }
-    
-    .nav-item-Mywv a{
-        color: #464646;
-        font-weight: bold; 
-    }
-    
-    /*
-    .dropdown-menu{
-        background-color: #C4C4C4;
-    }
-    */
-    
-    .nav-item-Mywv-drop a{
-        color: #464646;
-    }
-        
-    .navbar-toggler{
-        border-color: #000;
-    }
-    
-    .navbar-toggler .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-    
-    .mywvNavbar{
-        border-bottom: 1px solid #464646;
-    }
-    
-    
-</style>
-
 <header class="mb-4">
     
     <nav class="navbar navbar-expand-sm mywvNavbar">
@@ -52,14 +15,14 @@
                 
                 {{--認証分岐--}}
                 @if (Auth::check())
-                    {{-- ユーザ一覧ページへのリンク --}}
-                    <li class="nav-item nav-item-Mywv"><a href="#" class="nav-link">User</a></li>
                     {{-- ドロップダウンメニュー --}}
                     <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle nav-item-Mywv" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                    <a href="#" class="nav-link dropdown-toggle nav-item-Mywv" data-toggle="dropdown"><img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt=""></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- ユーザ詳細ページへのリンク --}}
-                            <li class="dropdown-item nav-item-Mywv-drop"><a href="#">詳細ページ</a></li>
+                            <li class="dropdown-item nav-item-Mywv-drop"><a href="#">{{ Auth::user()->name }}</a></li>
+                            {{-- ユーザ一覧ページへのリンク --}}
+                            <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('users.index', 'Users', [], ['class' => '']) !!}</li>
                             <li class="dropdown-divider"></li>
                             {{-- ログアウトへのリンク --}}
                             <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('logout.get', 'Logout') !!}</li>

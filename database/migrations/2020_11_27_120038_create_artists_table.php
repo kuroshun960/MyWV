@@ -20,9 +20,13 @@ class CreateArtistsTable extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->string('path');
             $table->text('description')->nullable();
+            $table->string('style')->nullable();
+            $table->string('officialHp')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('insta')->nullable();
             $table->timestamps();
             
             // 外部キー制約

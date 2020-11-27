@@ -56,9 +56,11 @@ use Illuminate\Support\Facades\Route;
 -----------------------------------------------------------------------------------------*/
 
     //下記を追記
-    //画像ファイルをアップロードするボタンを設置するページへのルーティング
-    Route::get('/upload/image', 'ImageController@input')->name('image.get');
-    //画像ファイルをアップロードする処理のルーティング
-    Route::post('/upload/image', 'ImageController@upload');
-    //アップロードした画像ファイルを表示するページのルーティング
-    Route::get('/', 'ImageController@output');
+    //アーティストをアップロードするボタンを設置するページ
+    Route::get('/upload/artist', 'ArtistsController@input')->name('artist.input');
+    //アーティストをアップロードする処理のルーティング
+    Route::post('/upload/artist', 'ArtistsController@upload')->name('artist.post');
+    //アップロードしたアーティストをタイル表示するページ
+    Route::get('/', 'ArtistsController@output')->name('artist.output');
+    //アーティストの詳細ページを表示するページ
+    Route::get('/artist/{id}', 'ArtistsController@show')->name('artist.show');

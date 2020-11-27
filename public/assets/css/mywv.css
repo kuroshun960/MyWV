@@ -70,6 +70,10 @@ a:hover {
 
     }
     
+    .artistList{
+        margin-top: 20px;
+    }
+    
     .artistPanel{
         width:180px;
         height:180px;
@@ -105,5 +109,26 @@ a:hover {
     }
     
     
+/*-----------------------------
+    アーティスト詳細ページ
+-------------------------------*/
     
+    .descriptionArea{
+        background-color: #F1F1F1;
+        border-radius: 5px;
+        padding: 50px 50px;
+    }
     
+    .artistStyle p{
+        font-size: 36px;
+    }
+    
+    .artistDescription p{
+        font-size: 16px;
+    }
+    
+    .snsUrl p{
+        font-size: 16px;
+        margin: 0;
+        text-align: center;
+    }

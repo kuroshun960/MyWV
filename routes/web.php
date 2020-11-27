@@ -1,5 +1,8 @@
 <?php
 
+//S3用に追記//
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,7 +55,9 @@
     アーティスト登録機能
 -----------------------------------------------------------------------------------------*/
 
-
-    Route::get('/upload/image', 'ImageController@input');
+    //下記を追記
+    //画像ファイルをアップロードするボタンを設置するページへのルーティング
+    Route::get('/upload/image', 'ImageController@input')->name('image.get');
     //画像ファイルをアップロードする処理のルーティング
     Route::post('/upload/image', 'ImageController@upload');
+    //上記までを追記

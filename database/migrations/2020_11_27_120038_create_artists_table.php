@@ -17,6 +17,7 @@ class CreateArtistsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('name');
+            $table->string('path');
             $table->text('description');
             $table->timestamps();
             

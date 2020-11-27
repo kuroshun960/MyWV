@@ -31,18 +31,17 @@
             </div>
                     
             <div class="artistList__row__items">
-                <a href="#"><div class="artistPanel__add"><p>+</p></div></a>
+                {{--<a href="#"><div class="artistPanel__add"><p>+</p></div></a>--}}
+                {!! link_to_route('image.get', '+', [], ['class' => 'artistPanel__add']) !!}
             </div>
+
+
 
         </div>
     </div>
     
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        <input type="file" name="file">
-        <button type="submit">保存</button>
-    </form>
-    
-    
+
+        
+
     
 </div>

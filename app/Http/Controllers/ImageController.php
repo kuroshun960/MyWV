@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
+
+//S3用に追記//
 use Illuminate\Support\Facades\Storage;
 
 
 class ImageController extends Controller
 {
-    //下記を追加
+    
+/*--------------------------------------------------------------------------
+    アーティスト追加ページ
+--------------------------------------------------------------------------*/
+    
     public function input()
     {
         return view('images.input');
     }
+    
+/*--------------------------------------------------------------------------
+    アーティスト画像をS3にアップロードする処理
+--------------------------------------------------------------------------*/
 
     public function upload(Request $request)
     {        
@@ -31,11 +40,14 @@ class ImageController extends Controller
             ]
         ]);
 
+        // ファイルが有効かどうかを判定
         if ($request->file('file')->isValid([])) {
 
             Storage::disk('s3')->putFile('/test', $request->file('file'), 'public');
             return redirect('/');
         }else{
+            
+        // 不正な場合は、エラーメッセージと共に、ページを再読み込み
             return redirect('/upload/image');
         }
     }

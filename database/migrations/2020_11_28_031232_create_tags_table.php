@@ -17,6 +17,7 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('artist_id');
             $table->string('name');
+            $table->timestamps();
             
             // 外部キー制約
             $table->foreign('artist_id')->references('id')->on('artists');

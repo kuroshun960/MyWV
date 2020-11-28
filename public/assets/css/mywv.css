@@ -2,8 +2,13 @@
     基準
 -------------------------------*/
 
+body{
+    background-color: #f9f9f9;
+}
+
 a {
   text-decoration: none;
+  color: #464646;
 }
 
 a:hover {
@@ -14,6 +19,10 @@ a:hover {
 /*-----------------------------
     ナビゲーションバー類
 -------------------------------*/
+
+    nav{
+        background-color: #fff;
+    }
 
     h1 {
         font-size: 40px;
@@ -108,6 +117,11 @@ a:hover {
         margin: 0 auto;
     }
     
+    .alignItemsCenter{
+        align-items: center;    
+    }
+    
+    
     
 /*-----------------------------
     アーティスト詳細ページ
@@ -131,4 +145,36 @@ a:hover {
         font-size: 16px;
         margin: 0;
         text-align: center;
+    }
+    
+    .tagAddbtn{
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #E0006C;
+        margin-left: 10px;
+        
+        justify-content: center; /*左右中央揃え*/
+        align-items: center;     /*上下中央揃え*/
+    }
+    
+    .tagAddbtn p{
+        text-align: center;
+        font-size: 18px;
+        line-height: 18px;
+        color: #fff;
+        margin: 0;
+    }
+    
+    .tagAddbtn p a{
+
+        color: #fff;
+    }
+    
+    .tagAddbtn__Frex{
+        align-items: center;
+    }
+    
+    .tagaddList{
+        margin-bottom: 20px;
     }

@@ -55,8 +55,7 @@ use Illuminate\Support\Facades\Route;
     アーティスト登録機能
 -----------------------------------------------------------------------------------------*/
 
-    //下記を追記
-    //アーティストをアップロードするボタンを設置するページ
+    //アーティストをアップロードするページ
     Route::get('/upload/artist', 'ArtistsController@input')->name('artist.input');
     //アーティストをアップロードする処理のルーティング
     Route::post('/upload/artist', 'ArtistsController@upload')->name('artist.post');
@@ -64,3 +63,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', 'ArtistsController@output')->name('artist.output');
     //アーティストの詳細ページを表示するページ
     Route::get('/artist/{id}', 'ArtistsController@show')->name('artist.show');
+    
+/*-----------------------------------------------------------------------------------------
+    タグ追加機能
+-----------------------------------------------------------------------------------------*/
+
+
+    //タグをアップロードするするページ
+    Route::get('/create/artist/{id}/tag/', 'TagsController@input')->name('tag.input');
+    //タグをアップロードする処理のルーティング
+    Route::post('/create/artist/{id}/tag/', 'TagsController@create')->name('tag.post');
+    //アップロードしたタグをアーティスト詳細ページに羅列する処理
+    Route::get('/create/artist/{id}/tag/', 'TagsController@create')->name('tag.post');

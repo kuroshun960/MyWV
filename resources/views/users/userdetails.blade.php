@@ -1,7 +1,7 @@
 <div class="container">
     
     <div class="userdetails_container_inner">
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around alignItemsCenter">
             <div><a href="#">follow :</a></div>
             <div class="">
                 <h1>
@@ -17,15 +17,15 @@
     <div class="artistList">
         <div class="artistList__row d-flex flex-wrap col-sm-12">
             
-            @foreach ($user_images as $user_image)
+            @foreach ($artists as $artist)
 
             <div class="artistList__row__items">
-                <a href="{{URL::to('artist/'.$user_image->id)}}">
+                <a href="{{URL::to('artist/'.$artist->id)}}">
                     <div class="artistPanel">
-                        <img src="{{ $user_image->path }}" width="100%">
+                        <img src="{{ $artist->path }}" width="100%">
                     </div>
                 </a>
-                <p>{!! link_to_route('artist.show', $user_image->name, ['id' => $user_image->id]) !!}</p>
+                <p>{!! link_to_route('artist.show', $artist->name, ['id' => $artist->id]) !!}</p>
 
             </div>
 

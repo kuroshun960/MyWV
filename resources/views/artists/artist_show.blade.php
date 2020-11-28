@@ -5,13 +5,19 @@
 <div class="container">
     
     <div class="userdetails_container_inner">
-        <div class="d-flex">
+        <div class="d-flex tagAddbtn__Frex">
             <div class="">
                 <h1>
                 <img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt="">
                 {{ $artist->name }}
                 </h1>
             </div>
+            
+            @foreach ($artistTags as $artistTag)
+            <span>　{{ $artistTag->name }}　/</span>
+            @endforeach
+            
+            <div class="tagAddbtn"><p>{!! link_to_route('tag.input', '+', ['id' => $artist->id], ['class' => '']) !!}</p></div>
         </div>
     </div>
     

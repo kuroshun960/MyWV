@@ -13,4 +13,12 @@ class Artist extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    //このアーティストが所有するタグ
+    
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
+    
 }

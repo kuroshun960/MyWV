@@ -118,9 +118,12 @@ public function upload(Request $request)
     {
         //現在ログイン中のユーザIDを変数$user_idに格納する
         $user_id = Auth::id();
-        //imagesテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$user_imagesに格納する
-        $user_images = Artist::whereUser_id($user_id)->get();
-        return view('welcome', ['user_images' => $user_images]);
+        
+        //artistテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$artistsに格納する
+        //artistテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$artistsに格納する
+        
+        $artists = Artist::whereUser_id($user_id)->get();
+        return view('welcome', ['artists' => $artists]);
     }
     
     
@@ -133,10 +136,25 @@ public function upload(Request $request)
         
         // idの値でアーティストを検索して取得
         $artist = Artist::findOrFail($id);
-
+        
+        $artistTag1 = $artist->tags()->findOrFail(1);
+        $artistTag2 = $artist->tags()->findOrFail(2);
+        $artistTag3 = $artist->tags()->findOrFail(3);
+        $artistTag4 = $artist->tags()->findOrFail(4);
+        $artistTag5 = $artist->tags()->findOrFail(5);
+        
+        $artistTags = [
+            $artistTag1,
+            $artistTag2,
+            $artistTag3,
+            $artistTag4,
+            $artistTag5,
+            ];
+        
         // アーティスト詳細ビューでそれを表示
         return view('artists.artist_show', [
             'artist' => $artist,
+            'artistTags' => $artistTags,
         ]);
     }
     

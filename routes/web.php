@@ -72,3 +72,15 @@ use Illuminate\Support\Facades\Route;
     Route::post('/create/artist/{id}/tag/', 'TagsController@create')->name('tag.post');
     //タグをアップロードするページ
     Route::get('/create/artist/{id}/tag/', 'TagsController@input')->name('tag.input');
+    
+    
+/*-----------------------------------------------------------------------------------------
+    作品投稿機能
+-----------------------------------------------------------------------------------------*/
+
+    //作品をアップロードするページ
+    Route::get('/upload/artist/work', 'ArtistsController@input')->name('work.input');
+    //作品をアップロードする処理のルーティング
+    Route::post('/upload/artist/work', 'ArtistsController@upload')->name('work.post');
+    //作品の詳細ページを表示するページ
+    Route::get('/artist/work/{id}', 'ArtistsController@show')->name('work.show');

@@ -20,6 +20,22 @@ class UsersController extends Controller
             'users' => $users,
         ]);
     }
+    
+    
+    public function show($id)
+    {
+        
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+        
+        $userArtists = $user->artist()->get();
+
+        // ユーザ詳細ビューでそれを表示
+        return view('users.usershow', [
+            'user' => $user,
+            'userArtists' => $userArtists,
+        ]);
+    }
   
     
 }

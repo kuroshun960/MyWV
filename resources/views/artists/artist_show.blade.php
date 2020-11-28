@@ -8,7 +8,7 @@
         <div class="d-flex tagAddbtn__Frex">
             <div class="">
                 <h1>
-                <img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt="">
+                <img class="mr-2 rounded mywv_artistIcon" src="{{ $artist->path }}" width="100%">
                 {{ $artist->name }}
                 </h1>
             </div>

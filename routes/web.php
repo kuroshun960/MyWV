@@ -68,10 +68,7 @@ use Illuminate\Support\Facades\Route;
     タグ追加機能
 -----------------------------------------------------------------------------------------*/
 
-
-    //タグをアップロードするするページ
-    Route::get('/create/artist/{id}/tag/', 'TagsController@input')->name('tag.input');
     //タグをアップロードする処理のルーティング
     Route::post('/create/artist/{id}/tag/', 'TagsController@create')->name('tag.post');
-    //アップロードしたタグをアーティスト詳細ページに羅列する処理
-    Route::get('/create/artist/{id}/tag/', 'TagsController@create')->name('tag.post');
+    //タグをアップロードするページ
+    Route::get('/create/artist/{id}/tag/', 'TagsController@input')->name('tag.input');

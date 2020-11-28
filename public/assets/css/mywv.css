@@ -134,6 +134,28 @@ a:hover {
         color: #727272;
     }
     
+    .userfollowBtn{
+        background-color: #E0006C;
+        width: 120px;
+        height: 40px;
+        margin-left: 30px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+    .userfollowBtn p{
+        color: #fff;
+        text-align: center;
+        margin-bottom: 0;
+    }
+        .userfollowBtn p a{
+        color: #fff;
+        
+    }
+    
     
     
 /*-----------------------------

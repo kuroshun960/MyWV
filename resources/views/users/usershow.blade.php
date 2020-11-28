@@ -7,12 +7,17 @@
     <div class="userdetails_container_inner">
         <div class="d-flex justify-content-around alignItemsCenter">
             <div><a href="#">follow :</a></div>
-            <div class="">
+            
+            <div class="d-flex justify-content-around alignItemsCenter">
                 <h1>
-                <img class="mr-2 rounded" src="" alt="">
+                <img class="mr-2 rounded" src="{{ Gravatar::get($user->email, ['size' => 40]) }}" alt="">
                 {{ $user->name }}
                 </h1>
+                @if (Auth::id() !== $user->id )
+                    <div class="userfollowBtn"><p><a href="#">follow</a></p></div>
+                @endif
             </div>
+            
             <div><a href="#">follower :</a></div>
         </div>
     </div>

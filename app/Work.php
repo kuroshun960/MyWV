@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Work extends Model
 {
     
-    //このタグを所有するアーティスト
+    //この作品を所有するアーティスト
     
-    protected $fillable = ['name'];
+    protected $fillable = ['name','title','description',];
     
     public function artist()
     {

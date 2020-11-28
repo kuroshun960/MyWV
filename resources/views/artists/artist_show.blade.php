@@ -13,9 +13,12 @@
                 </h1>
             </div>
             
+            
             @foreach ($artistTags as $artistTag)
-            <span>　{{ $artistTag->name }}　/</span>
+            <span class="artistTags">　{{ $artistTag->name }}　/</span>
             @endforeach
+
+
             
             <div class="tagAddbtn"><p>{!! link_to_route('tag.input', '+', ['id' => $artist->id], ['class' => '']) !!}</p></div>
         </div>

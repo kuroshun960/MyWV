@@ -21,4 +21,9 @@ class Artist extends Model
         return $this->hasMany(Tag::class);
     }
     
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('tags');
+    }
+    
 }

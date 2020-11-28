@@ -60,6 +60,46 @@ class TagsController extends Controller
 --------------------------------------------------------------------------*/
     
 
+    public function show($id)
+    {        
+
+
+        /*
+        $artistTag1 = $artist->tags()->findOrFail(1);
+        $artistTag2 = $artist->tags()->findOrFail(2);
+        $artistTag3 = $artist->tags()->findOrFail(3);
+        $artistTag4 = $artist->tags()->findOrFail(4);
+        $artistTag5 = $artist->tags()->findOrFail(5);
+        
+        $artistTags = [
+            $artistTag1,
+            $artistTag2,
+            $artistTag3,
+            $artistTag4,
+            $artistTag5,
+            ];
+        
+        
+        return view('artists.artist_show', [
+        
+            'artistTags' => $artistTags,
+            
+        ]);
+        */
+
+        // 投稿後リダイレクト
+        return redirect('artist/'.$id);
+        
+    }
+
+        
+
+
+
+
+
+
+
     
     
 

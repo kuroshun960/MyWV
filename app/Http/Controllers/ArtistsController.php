@@ -136,7 +136,18 @@ public function upload(Request $request)
         
         // idの値でアーティストを検索して取得
         $artist = Artist::findOrFail($id);
+
+        $artistTags = $artist->tags()->take(8)->get();
         
+        // アーティスト詳細ビューでそれを表示
+        return view('artists.artist_show', [
+            'artist' => $artist,
+            'artistTags' => $artistTags,
+        ]);
+        
+        
+        
+        /*
         $artistTag1 = $artist->tags()->findOrFail(1);
         $artistTag2 = $artist->tags()->findOrFail(2);
         $artistTag3 = $artist->tags()->findOrFail(3);
@@ -151,11 +162,15 @@ public function upload(Request $request)
             $artistTag5,
             ];
         
-        // アーティスト詳細ビューでそれを表示
+        
         return view('artists.artist_show', [
-            'artist' => $artist,
+        
             'artistTags' => $artistTags,
+            
         ]);
+        */
+        
+        
     }
     
 

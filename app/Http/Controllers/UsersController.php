@@ -36,6 +36,46 @@ class UsersController extends Controller
             'userArtists' => $userArtists,
         ]);
     }
+    
+    
+    public function followings($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+
+        // 関係するモデルの件数をロード(数をフォロー数を数字で表示)
+        $user->loadRelationshipCounts();
+
+        // ユーザのフォロー一覧を取得
+        $followingsUsers = $user->followings()->paginate(10);
+
+        // フォロー一覧ビューでそれらを表示
+        return view('users.user_followings', [
+            'user' => $user,
+            'followingsUsers' => $followingsUsers,
+        ]);
+    }
+    
+    public function followers($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+
+        // 関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+
+        // ユーザのフォロワー一覧を取得
+        $followers = $user->followers()->paginate(10);
+
+        // フォロワー一覧ビューでそれらを表示
+        return view('users.followers', [
+            'user' => $user,
+            'users' => $followers,
+        ]);
+    }
+    
+    
+    
   
     
 }

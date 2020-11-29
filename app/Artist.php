@@ -28,7 +28,7 @@ class Artist extends Model
     
     public function loadRelationshipCounts()
     {
-        $this->loadCount('tags');
+        $this->loadCount('tags','works');
     }
     
 }

@@ -38,7 +38,7 @@
         {!! Form::label('file', '画像ファイル:') !!}
         {!! Form::file('file', ['class' => 'form-control']) !!}
         <br>
-        {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block']) !!}
+        {!! Form::submit('アーティストを登録', ['class' => 'btn btn-primary btn-block']) !!}
         
     </div>
 {!! Form::close() !!}

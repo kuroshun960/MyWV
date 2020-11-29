@@ -139,36 +139,18 @@ public function upload(Request $request)
 
         $artistTags = $artist->tags()->take(8)->get();
         
+        $artistWorks = $artist->works()->get();
+        
+        
+        
         // アーティスト詳細ビューでそれを表示
         return view('artists.artist_show', [
             'artist' => $artist,
             'artistTags' => $artistTags,
+            'artistWorks' => $artistWorks,
         ]);
         
-        
-        
-        /*
-        $artistTag1 = $artist->tags()->findOrFail(1);
-        $artistTag2 = $artist->tags()->findOrFail(2);
-        $artistTag3 = $artist->tags()->findOrFail(3);
-        $artistTag4 = $artist->tags()->findOrFail(4);
-        $artistTag5 = $artist->tags()->findOrFail(5);
-        
-        $artistTags = [
-            $artistTag1,
-            $artistTag2,
-            $artistTag3,
-            $artistTag4,
-            $artistTag5,
-            ];
-        
-        
-        return view('artists.artist_show', [
-        
-            'artistTags' => $artistTags,
-            
-        ]);
-        */
+
         
         
     }

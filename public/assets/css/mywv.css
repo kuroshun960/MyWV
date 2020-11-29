@@ -6,6 +6,8 @@ body{
     background-color: #f9f9f9;
 }
 
+
+
 a {
   text-decoration: none;
   color: #464646;
@@ -166,6 +168,7 @@ a:hover {
         background-color: #F1F1F1;
         border-radius: 5px;
         padding: 50px 50px;
+        margin-top: 30px;
     }
     
     .artistStyle p{
@@ -212,4 +215,27 @@ a:hover {
     
     .tagaddList{
         margin-bottom: 20px;
+    }
+    
+    
+/*-----------------------------
+    作品詳細ページ
+-------------------------------*/
+    
+    .workshow{
+        margin-top: 30px
+    }
+    
+    .workshowImage{
+        max-width: 30%;
+        
+    }
+    
+    .workDescriptionArea{
+        background-color: #F1F1F1;
+        border-radius: 5px;
+        width: 60%;
+        padding: 50px 50px;
+        margin-left: 20px;
+        
     }

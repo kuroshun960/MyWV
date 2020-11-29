@@ -79,8 +79,8 @@ use Illuminate\Support\Facades\Route;
 -----------------------------------------------------------------------------------------*/
 
     //作品をアップロードするページ
-    Route::get('/upload/artist/work', 'ArtistsController@input')->name('work.input');
+    Route::get('/upload/artist/{id}/work', 'WorksController@input')->name('work.input');
     //作品をアップロードする処理のルーティング
-    Route::post('/upload/artist/work', 'ArtistsController@upload')->name('work.post');
+    Route::post('/upload/artist/{id}/work', 'WorksController@upload')->name('work.post');
     //作品の詳細ページを表示するページ
-    Route::get('/artist/work/{id}', 'ArtistsController@show')->name('work.show');
+    Route::get('/artist/work/{id}', 'WorksController@show')->name('work.show');

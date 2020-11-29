@@ -18,9 +18,11 @@
             <span class="artistTags">　{{ $artistTag->name }}　/</span>
             @endforeach
 
-
+            
             
             <div class="tagAddbtn"><p>{!! link_to_route('tag.input', '+', ['id' => $artist->id], ['class' => '']) !!}</p></div>
+            
+            
         </div>
     </div>
     
@@ -28,21 +30,30 @@
     <div class="artistList">
         <div class="artistList__row d-flex flex-wrap col-sm-12">
             
+            @foreach ($artistWorks as $artistWork)
+
             <div class="artistList__row__items">
-                <a href="#">
+                <a href="{{URL::to('/artist/work/'.$artistWork->id)}}">
                     <div class="artistPanel">
-                        
+                        <img src="{{ $artistWork->path }}" width="100%">
                     </div>
                 </a>
-                <p><a href="#">artist_Name</a></p>
+                <p>{!! link_to_route('work.show', $artistWork->title, ['id' => $artistWork->id]) !!}</p>
+
             </div>
 
+            @endforeach
+
+
+            {{---自分のアーティストリストにしか作品は追加できない---}}
+            @if (Auth::id() === $artist->user_id )
        
             <div class="artistList__row__items">
                 {{--<a href="#"><div class="artistPanel__add"><p>+</p></div></a>--}}
-                {!! link_to_route('artist.input', '+', [], ['class' => 'artistPanel__add']) !!}
+                {!! link_to_route('work.input', '+', ['id' => $artist->id], ['class' => 'artistPanel__add']) !!}
             </div>
 
+            @endif
 
 
         </div>

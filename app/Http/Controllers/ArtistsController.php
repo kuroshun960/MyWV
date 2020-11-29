@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Artist;
+use App\User;
 
 class ArtistsController extends Controller
 {
@@ -119,11 +120,15 @@ public function upload(Request $request)
         //現在ログイン中のユーザIDを変数$user_idに格納する
         $user_id = Auth::id();
         
+
         //artistテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$artistsに格納する
         //artistテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$artistsに格納する
         
         $artists = Artist::whereUser_id($user_id)->get();
-        return view('welcome', ['artists' => $artists]);
+        return view('welcome', [
+            'artists' => $artists
+            
+            ]);
     }
     
     

@@ -4,7 +4,7 @@
 
     {{-- フォロー一覧 --}}
     <div class="text-center">
-        <h1>Following user:{{ $user->followings_count }}</h1>
+        <h1>Following user:{{ $usernumber->followings_count }}</h1>
     </div>
     @if (count($followingsUsers) > 0)
         <ul class="list-unstyled d-flex">

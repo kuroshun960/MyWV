@@ -28,6 +28,8 @@ class UsersController extends Controller
         // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
         
+        $user->loadRelationshipCounts();
+        
         $userArtists = $user->artist()->get();
 
         // ユーザ詳細ビューでそれを表示
@@ -41,19 +43,21 @@ class UsersController extends Controller
     public function followings($id)
     {
         // idの値でユーザを検索して取得
-        $user = User::findOrFail($id);
+        $usernumber = User::findOrFail($id);
 
         // 関係するモデルの件数をロード(数をフォロー数を数字で表示)
-        $user->loadRelationshipCounts();
+        $usernumber->loadRelationshipCounts();
 
         // ユーザのフォロー一覧を取得
-        $followingsUsers = $user->followings()->paginate(10);
+        $followingsUsers = $usernumber->followings()->paginate(10);
 
         // フォロー一覧ビューでそれらを表示
         return view('users.user_followings', [
-            'user' => $user,
+            'usernumber' => $usernumber,
             'followingsUsers' => $followingsUsers,
         ]);
+        
+        
     }
     
     public function followers($id)

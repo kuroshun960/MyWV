@@ -20,7 +20,7 @@
                     <a href="#" class="nav-link dropdown-toggle nav-item-Mywv" data-toggle="dropdown"><img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt=""></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- ユーザ詳細ページへのリンク --}}
-                            <li class="dropdown-item nav-item-Mywv-drop"><a href="#">{{ Auth::user()->name }}</a></li>
+                            <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('users.show', Auth::user()->name, ['user' => Auth::id()]) !!}</li>
                             {{-- ユーザ一覧ページへのリンク --}}
                             <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('users.index', 'Users', [], ['class' => '']) !!}</li>
                             <li class="dropdown-divider"></li>

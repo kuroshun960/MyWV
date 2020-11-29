@@ -9,7 +9,7 @@
         
         
     
-    @else (Auth::check())
+    @else 
         <div class="center jumbotron">
             <div class="text-center">
                 <h1>#aaaaa</h1>

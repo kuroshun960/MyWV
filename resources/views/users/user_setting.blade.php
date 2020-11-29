@@ -20,6 +20,10 @@
                     {!! Form::email('email', old('email'), ['class' => 'form-control','placeholder' => 'メールアドレス']) !!}
                 </div>
 
+                <div class="form-group">
+                    {!! Form::label('file', 'プロフィール画像:') !!}
+                    {!! Form::file('file', ['class' => 'form-control']) !!}
+                </div>
 
                 {!! Form::submit('更新する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}

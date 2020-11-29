@@ -247,6 +247,20 @@ a:hover {
         margin-bottom: 20px;
     }
     
+    .artistEditBtn{
+        background-color: #E0006C;
+        height: 30px;
+        margin: 0 0 0 auto;
+        padding: 0 20px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: #fff;
+    }    
+
+    
     
 /*-----------------------------
     作品詳細ページ

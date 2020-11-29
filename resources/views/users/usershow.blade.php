@@ -16,7 +16,7 @@
                     @include('user_follow.follow_button')
             </div>
             
-            <div><a href="#">follower :</a></div>
+            <div><a href="{{ route('users.followers', ['id' => $user->id]) }}">follow :　{{ $user->followers_count }}</a></div>
         </div>
     </div>
     

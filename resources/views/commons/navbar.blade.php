@@ -17,7 +17,10 @@
                 @if (Auth::check())
                     {{-- ドロップダウンメニュー --}}
                     <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle nav-item-Mywv" data-toggle="dropdown"><img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt=""></a>
+                    <a href="#" class="nav-link dropdown-toggle nav-item-Mywv" data-toggle="dropdown">
+                        <span class="navUsername">{{ Auth::user()->name }}</span>
+                        <img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt="">
+                    </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- ユーザ詳細ページへのリンク --}}
                             <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('users.show', Auth::user()->name, ['user' => Auth::id()]) !!}</li>

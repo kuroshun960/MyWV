@@ -63,18 +63,18 @@ class UsersController extends Controller
     public function followers($id)
     {
         // idの値でユーザを検索して取得
-        $user = User::findOrFail($id);
+        $usernumber = User::findOrFail($id);
 
         // 関係するモデルの件数をロード
-        $user->loadRelationshipCounts();
+        $usernumber->loadRelationshipCounts();
 
         // ユーザのフォロワー一覧を取得
-        $followers = $user->followers()->paginate(10);
+        $followersUsers = $usernumber->followers()->paginate(10);
 
         // フォロワー一覧ビューでそれらを表示
-        return view('users.followers', [
-            'user' => $user,
-            'users' => $followers,
+        return view('users.user_followers', [
+            'usernumber' => $usernumber,
+            'followersUsers' => $followersUsers,
         ]);
     }
     

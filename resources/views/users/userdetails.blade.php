@@ -2,14 +2,14 @@
     
     <div class="userdetails_container_inner">
         <div class="d-flex justify-content-around alignItemsCenter">
-            <div><a href="{{ route('users.followings', ['id' => Auth::id()]) }}">follow :</a></div>
+            
             <div class="">
                 <h1>
                 <img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt="">
                 {{ Auth::user()->name }}
                 </h1>
             </div>
-            <div><a href="#">follower :</a></div>
+            
         </div>
     </div>
     

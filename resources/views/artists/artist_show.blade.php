@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
-    
+
+
     <div class="userdetails_container_inner">
         <div class="d-flex tagAddbtn__Frex">
             <div class="">
@@ -81,8 +81,4 @@
     
 
 </div>
-
-
-
-
 @endsection

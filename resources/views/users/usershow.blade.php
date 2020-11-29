@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
-    
+ 
+ 
+   
     <div class="userdetails_container_inner">
         <div class="d-flex justify-content-around alignItemsCenter">
             <div><a href="{{ route('users.followings', ['id' => $user->id]) }}">follow :　{{ $user->followings_count }}</a></div>
@@ -52,11 +53,9 @@
     </div>
     
 
-</div>
-        
-        
 
-        
-        
-    
+
+
+
+</div>
 @endsection

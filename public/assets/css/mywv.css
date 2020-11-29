@@ -163,7 +163,10 @@ a:hover {
         align-items: center;
         cursor: pointer;
         color: #fff;
-        
+    }
+    
+    .userfollowBtn a{
+        color: #fff;
     }
     
     .userfollowBtn p{
@@ -261,3 +264,43 @@ a:hover {
         margin-left: 20px;
         
     }
+    
+    
+    
+/*-----------------------------
+    ログイン前ページ
+-------------------------------*/    
+    
+    .userRegistBtn{
+        background-color: #E0006C;
+        width: 300px;
+        height: 40px;
+        margin: 30px auto 0;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: #fff;
+    }
+    
+    .userRegistBtn a{
+        color: #fff;
+    }
+    
+    .userRegistBtn p{
+        text-align: center;
+        margin-bottom: 0;
+    }
+    
+    .userRegistArea{
+        margin-top: 200px;
+    }
+    
+/*-----------------------------
+    add css
+-------------------------------*/
+    
+.marginZeroauto{
+    
+}

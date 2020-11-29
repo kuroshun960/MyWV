@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 
     @if (Auth::check())
         
@@ -10,12 +11,14 @@
         
     
     @else 
-        <div class="center jumbotron">
+        <div class="userRegistArea">
             <div class="text-center">
-                <h1>#aaaaa</h1>
-                {!! link_to_route('signup.get','signup',[],['class'=>'btn btn-lg btn-primary']) !!}
+                <h1># 新たな世界観を見つけよう！</h1>
+                <div class="userRegistBtn marginZeroauto">
+                    {!! link_to_route('signup.get','登録する',[],['class'=>'']) !!}</div>
             </div>
         </div>
     @endif
     
+</div>
 @endsection

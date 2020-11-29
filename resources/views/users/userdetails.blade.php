@@ -1,4 +1,4 @@
-<div class="container">
+
     
     <div class="userdetails_container_inner">
         <div class="d-flex justify-content-around alignItemsCenter">
@@ -43,4 +43,3 @@
     </div>
     
 
-</div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container">
 
 {{-- {!! Form::open(['route' => 'tag.post', 'enctype' => 'multipart/form-data']) !!}  --}}
 
@@ -28,5 +28,5 @@
 
 
 
-
+</div>
 @endsection

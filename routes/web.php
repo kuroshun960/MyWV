@@ -45,25 +45,12 @@ use Illuminate\Support\Facades\Route;
     ※将来的にユーザー削除機能もつける場合はdestroyを追加する
 -----------------------------------------------------------------------------------------*/
 
-        // 認証付きルート
+    ///////////////*** 認証付きルート***////////////////////
+    
         Route::group(['middleware' => ['auth']], function () {
             Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
-        });
-        
-        
-/*-----------------------------------------------------------------------------------------
-    アーティスト登録機能
------------------------------------------------------------------------------------------*/
-
-    //アーティストをアップロードするページ
-    Route::get('/upload/artist', 'ArtistsController@input')->name('artist.input');
-    //アーティストをアップロードする処理のルーティング
-    Route::post('/upload/artist', 'ArtistsController@upload')->name('artist.post');
-    //アップロードしたアーティストをタイル表示するページ
-    Route::get('/', 'ArtistsController@output')->name('artist.output');
-    //アーティストの詳細ページを表示するページ
-    Route::get('/artist/{id}', 'ArtistsController@show')->name('artist.show');
-    
+            
+            
 /*-----------------------------------------------------------------------------------------
     タグ追加機能
 -----------------------------------------------------------------------------------------*/
@@ -72,7 +59,6 @@ use Illuminate\Support\Facades\Route;
     Route::post('/create/artist/{id}/tag/', 'TagsController@create')->name('tag.post');
     //タグをアップロードするページ
     Route::get('/create/artist/{id}/tag/', 'TagsController@input')->name('tag.input');
-    
     
 /*-----------------------------------------------------------------------------------------
     作品投稿機能
@@ -85,6 +71,7 @@ use Illuminate\Support\Facades\Route;
     //作品の詳細ページを表示するページ
     Route::get('/artist/work/{id}', 'WorksController@show')->name('work.show');
     
+ 
     
 /*-----------------------------------------------------------------------------------------
     フォロー機能
@@ -99,3 +86,43 @@ use Illuminate\Support\Facades\Route;
     Route::get('/users/{id}/followings', 'UsersController@followings')->name('users.followings');
     //フォロワー一覧
     Route::get('/users/{id}/followers', 'UsersController@followers')->name('users.followers');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+    アーティスト登録機能
+-----------------------------------------------------------------------------------------*/
+
+    //アーティストをアップロードするページ
+    Route::get('/upload/artist', 'ArtistsController@input')->name('artist.input');
+    //アーティストをアップロードする処理のルーティング
+    Route::post('/upload/artist', 'ArtistsController@upload')->name('artist.post');
+    //アーティストの詳細ページを表示するページ
+    Route::get('/artist/{id}', 'ArtistsController@show')->name('artist.show');    
+    
+    }); //認証付きルートはここまで
+        
+    //アップロードしたアーティストをタイル表示するページ
+    Route::get('/', 'ArtistsController@output')->name('artist.output');
+
+    
+    
+
+        
+
+
+

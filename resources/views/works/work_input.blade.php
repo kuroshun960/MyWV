@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 
 <!-- 
 <form action="/upload/artist" method="POST" enctype="multipart/form-data">
@@ -36,5 +37,5 @@
 
 
 
-
+</div>
 @endsection

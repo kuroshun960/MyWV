@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container">
 
     <div class="text-center">
         <h1>ログイン</h1>
@@ -26,4 +26,7 @@
             <p class="mt-2">まだ登録してない方はこちら {!! link_to_route('signup.get', '今すぐ無料登録!') !!}</p>
         </div>
     </div>
+    
+    
+</div>
 @endsection

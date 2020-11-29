@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 
     {{-- フォロー一覧 --}}
     <div class="text-center">
@@ -22,4 +23,7 @@
             @endforeach
         </ul>
     @endif
+    
+    
+</div>
 @endsection

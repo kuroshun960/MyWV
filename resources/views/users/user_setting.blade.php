@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
 
-                {!! Form::model($userSetting, ['route' => ['users.update', $userSetting->id], 'enctype' => 'multipart/form-data']) !!}
+                {!! Form::model($userSetting, ['route' => ['users.update', $userSetting->id], 'enctype' => 'multipart/form-data','method' => 'put']) !!}
                 <div class="form-group">
                     {!! Form::text('name', old('name'), ['class' => 'form-control','placeholder' => '名前']) !!}
                 </div>
@@ -20,13 +20,6 @@
                     {!! Form::email('email', old('email'), ['class' => 'form-control','placeholder' => 'メールアドレス']) !!}
                 </div>
 
-                <div class="form-group">
-                    {!! Form::password('password', ['class' => 'form-control','placeholder' => 'パスワード']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::password('password_confirmation', ['class' => 'form-control','placeholder' => 'パスワード（確認）']) !!}
-                </div>
 
                 {!! Form::submit('更新する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}

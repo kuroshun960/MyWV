@@ -62,10 +62,11 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         // idの値でメッセージを検索して取得
-        $message = Message::findOrFail($id);
+        $userSetting = User::findOrFail($id);
         // メッセージを更新
-        $message->content = $request->content;
-        $message->save();
+        $userSetting->name = $request->name;
+        $userSetting->email = $request->email;
+        $userSetting->save();
 
         // トップページへリダイレクトさせる
         return redirect('/');

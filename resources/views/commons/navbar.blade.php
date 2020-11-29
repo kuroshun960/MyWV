@@ -26,6 +26,8 @@
                             <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('users.show', Auth::user()->name, ['user' => Auth::id()]) !!}</li>
                             {{-- ユーザ一覧ページへのリンク --}}
                             <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('users.index', 'Users', [], ['class' => '']) !!}</li>
+                            {{-- ユーザ一設定 --}}
+                            <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('users.edit', 'Setting', ['user' => Auth::id()]) !!}</li>
                             <li class="dropdown-divider"></li>
                             {{-- ログアウトへのリンク --}}
                             <li class="dropdown-item nav-item-Mywv-drop">{!! link_to_route('logout.get', 'Logout') !!}</li>

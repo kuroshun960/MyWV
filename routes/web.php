@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\Route;
     ///////////////*** 認証付きルート***////////////////////
     
         Route::group(['middleware' => ['auth']], function () {
-            Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+            Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
             
             
 /*-----------------------------------------------------------------------------------------

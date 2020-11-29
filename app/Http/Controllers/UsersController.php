@@ -40,6 +40,43 @@ class UsersController extends Controller
     }
     
     
+/*----------------------------------------------------
+    ユーザー設定の編集ページ
+----------------------------------------------------*/
+    
+    public function edit($id)
+    {
+        
+        $userSetting = User::findOrFail($id);
+        
+        return view('users.user_setting', [
+            'userSetting' => $userSetting,
+        ]);
+
+    }
+
+/*----------------------------------------------------
+    ユーザー設定の更新処理
+----------------------------------------------------*/
+
+    public function update(Request $request, $id)
+    {
+        // idの値でメッセージを検索して取得
+        $message = Message::findOrFail($id);
+        // メッセージを更新
+        $message->content = $request->content;
+        $message->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
+    }
+    
+    
+    
+    
+    
+    
+    
     public function followings($id)
     {
         // idの値でユーザを検索して取得

@@ -14,6 +14,7 @@
                 {{ $workId->title }}
                 </h1>
             </div>
+            <div class="artistEditBtn"><a>aaa</a></div>
         </div>
     </div>
     

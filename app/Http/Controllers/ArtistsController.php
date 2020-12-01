@@ -184,8 +184,6 @@ public function upload(Request $request)
         // 画像のアップ形式のバリデーション
         $this->validate($request, [
             'file' => [
-                // 必須
-                'required',
                 // アップロードされたファイルであること
                 'file',
                 // 画像ファイルであること
@@ -195,8 +193,11 @@ public function upload(Request $request)
             ]
         ]);
         
+        
+        // idの値でメッセージを検索して取得
+        $update_artist_data = Artist::findOrFail($id);
 
-        if ($request->file('file')->isValid([])) {
+        if ($request->file('file')) {
             
             //バリデーションを正常に通過した時の処理
             //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する
@@ -204,12 +205,12 @@ public function upload(Request $request)
             
             //S3へのファイルアップロード処理の時の情報が格納された変数を用いてアップロードされた画像へのリンクURLを変数に格納する
             $path = Storage::disk('s3')->url($upload_info);
-            
-            
-            // idの値でメッセージを検索して取得
-            $update_artist_data = Artist::findOrFail($id);
+
             // メッセージを更新
             $update_artist_data->path = $path;
+            
+        }
+        
             $update_artist_data->name = $request->name;
             $update_artist_data->description = $request->description;
             $update_artist_data->style = $request->style;
@@ -219,17 +220,11 @@ public function upload(Request $request)
             
             //インスタンスの内容をDBのテーブルに保存する
             $update_artist_data->save();
-            
+        
 
             return redirect('/');
             
-        }else{
-            //バリデーションではじかれた時の処理
-            return redirect('/');
-        }
-
-        // トップページへリダイレクトさせる
-        return redirect('/');
+ 
     }
     
 

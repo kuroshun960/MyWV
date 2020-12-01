@@ -14,7 +14,7 @@
                 {{ $workId->title }}
                 </h1>
             </div>
-            <div class="artistEditBtn"><a>aaa</a></div>
+            <div class="artistEditBtn">{!! link_to_route('work.edit', '作品を編集', ['id' => $workId->id], ['class' => '']) !!}</div>
         </div>
     </div>
     

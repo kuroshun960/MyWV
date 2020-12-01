@@ -226,7 +226,7 @@ public function upload(Request $request)
             $update_artist_data->save();
         
 
-            return redirect('/');
+            return redirect('/artist/'.$id);
         }
     else{    
         return redirect('/');
@@ -248,15 +248,17 @@ public function upload(Request $request)
         
             if (\Auth::id() === $artistEdit->user_id) {
                 
-                
+                //子供リレーション（タグ）を削除
                 $artistEdit->tags()->each(function ($tag) {
                     $tag->delete();
                 });
-        
+                
+                //子供リレーション（作品）を削除
                 $artistEdit->works()->each(function ($work) {
                     $work->delete();
                 });
                 
+                //アーティスト（親）を削除
                 $artistEdit->delete();
         
                 return redirect('/');

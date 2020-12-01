@@ -104,7 +104,7 @@ public function upload(Request $request, $id)
             ]);
             */
 
-            return redirect('/');
+            return redirect('/artist/'.$id);
             
         }else{
             //バリデーションではじかれた時の処理
@@ -114,7 +114,6 @@ public function upload(Request $request, $id)
         
     }
     
-
 
 /*--------------------------------------------------------------------------
     作品詳細情報を表示するアクション
@@ -136,9 +135,102 @@ public function upload(Request $request, $id)
             'workArtistId' => $workArtistId,
         ]);
         
+    }
 
+
+/*--------------------------------------------------------------------------
+    作品情報 更新画面
+--------------------------------------------------------------------------*/
+    
+    public function edit($id)
+    {
+
+        $workEdit = Work::findOrFail($id);
+        
+        return view('works.work_edit', [
+            'workEdit' => $workEdit,
+        ]);
         
         
+    }
+
+
+/*--------------------------------------------------------------------------
+    作品 更新処理
+--------------------------------------------------------------------------*/
+    
+    public function update(Request $request, $id)
+    {
+        // 画像のアップ形式のバリデーション
+        $this->validate($request, [
+            'file' => [
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ]
+        ]);
+        
+        
+        // idの値でメッセージを検索して取得
+        $update_work_data = Work::findOrFail($id);
+
+
+
+
+        if ($request->file('file')) {
+            
+            //バリデーションを正常に通過した時の処理
+            //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する
+            $upload_info = Storage::disk('s3')->putFile('/test', $request->file('file'), 'public');
+            
+            //S3へのファイルアップロード処理の時の情報が格納された変数を用いてアップロードされた画像へのリンクURLを変数に格納する
+            $path = Storage::disk('s3')->url($upload_info);
+
+            // メッセージを更新
+            $update_work_data->path = $path;
+            
+        }
+        
+            $update_work_data->title = $request->title;
+            $update_work_data->description = $request->description;
+            
+            //インスタンスの内容をDBのテーブルに保存する
+            $update_work_data->save();
+        
+
+            return redirect('/artist/work/'.$id);
+        
+
+            
+    }
+    
+
+
+
+
+/*--------------------------------------------------------------------------
+    アーティスト削除
+--------------------------------------------------------------------------*/
+    
+    public function destroy($id)
+    {
+        
+    $workEdit = Work::findOrFail($id);
+        
+    if (\Auth::id() === $workEdit->user_id) {
+    
+        //アーティスト（親）を削除
+        $workEdit->delete();
+
+        return redirect('/');
+        
+        }else{    
+            return redirect('/');
+        }
+   
     }
     
 

@@ -70,7 +70,12 @@ use Illuminate\Support\Facades\Route;
     Route::post('/upload/artist/{id}/work', 'WorksController@upload')->name('work.post');
     //作品の詳細ページを表示するページ
     Route::get('/artist/work/{id}', 'WorksController@show')->name('work.show');
-    
+    //作品の詳細ページを表示するページ
+    Route::get('/artist/work/{id}/edit', 'WorksController@edit')->name('work.edit');
+    //作品の詳細ページを表示するページ
+    Route::put('/artist/work/{id}', 'WorksController@update')->name('work.update');
+    //作品の詳細ページを表示するページ
+    Route::delete('/artist/work/{id}', 'WorksController@destroy')->name('work.destroy');
  
     
 /*-----------------------------------------------------------------------------------------

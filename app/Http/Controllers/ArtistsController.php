@@ -237,11 +237,9 @@ public function upload(Request $request)
         $artistEdit = Artist::findOrFail($id);
         
         // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
-        if (\Auth::id() === $artistEdit->user_id) {
-            $artistEdit->delete();
-        }
-        
-        
+
+        $artistEdit->delete();
+
     }
 
 

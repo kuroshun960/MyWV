@@ -11,7 +11,7 @@
             
             <div class="d-flex justify-content-around alignItemsCenter">
                 <h1>
-                <img class="mr-2 rounded" src="{{ Gravatar::get($user->email, ['size' => 40]) }}" alt="">
+                <img class="mr-2 userIconimage" src="{{ $user->path }}" alt="">
                 {{ $user->name }}
                 </h1>
                     @include('user_follow.follow_button')

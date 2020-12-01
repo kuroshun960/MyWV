@@ -19,7 +19,7 @@
                     <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle nav-item-Mywv" data-toggle="dropdown">
                         <span class="navUsername">{{ Auth::user()->name }}</span>
-                        <img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt="">
+                        <img class="mr-2 userIconimage" src="{{ Auth::user()->path }}" alt="">
                     </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- ユーザ詳細ページへのリンク --}}

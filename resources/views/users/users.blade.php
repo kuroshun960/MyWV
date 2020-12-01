@@ -1,9 +1,9 @@
 @if (count($users) > 0)
     <ul class="list-unstyled d-flex">
         @foreach ($users as $user)
-            <li class="media ml-2">
+            <li class="media ml-4">
                 {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-                <img class="mr-2 rounded" src="{{ Gravatar::get($user->email, ['size' => 40]) }}" alt="">
+                <img class="mr-2 userIconimage" src="{{ $user->path }}" alt="">
                 <div class="media-body">
                     <div>
                         {{-- ユーザ詳細ページへのリンク --}}

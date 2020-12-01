@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//S3用
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 //ここでは、Userモデルのモデル操作をするので、あらかじめ名前空間をUserに設定しておく
 use App\User;
 
@@ -61,12 +65,47 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        // idの値でメッセージを検索して取得
-        $userSetting = User::findOrFail($id);
-        // メッセージを更新
-        $userSetting->name = $request->name;
-        $userSetting->email = $request->email;
-        $userSetting->save();
+
+        // 画像のアップ形式のバリデーション
+        $this->validate($request, [
+            'file' => [
+                // 必須
+                'required',
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ]
+        ]);
+        
+
+        if ($request->file('file')->isValid([])) {
+            
+            //バリデーションを正常に通過した時の処理
+            //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する
+            $upload_info = Storage::disk('s3')->putFile('/test', $request->file('file'), 'public');
+            
+            //S3へのファイルアップロード処理の時の情報が格納された変数を用いてアップロードされた画像へのリンクURLを変数に格納する
+            $path = Storage::disk('s3')->url($upload_info);
+            
+            
+            // idの値でメッセージを検索して取得
+            $userSetting = User::findOrFail($id);
+            // メッセージを更新
+            $userSetting->name = $request->name;
+            $userSetting->email = $request->email;
+            $userSetting->path = $path;
+            $userSetting->save();
+            
+
+            return redirect('/');
+            
+        }else{
+            //バリデーションではじかれた時の処理
+            return redirect('/');
+        }
 
         // トップページへリダイレクトさせる
         return redirect('/');

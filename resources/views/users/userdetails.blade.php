@@ -5,7 +5,7 @@
             
             <div class="">
                 <h1>
-                <img class="mr-2 rounded" src="{{ Gravatar::get(Auth::user()->email, ['size' => 40]) }}" alt="">
+                <img class="mr-2 userIconimage" src="{{ Auth::user()->path }}" alt="">
                 {{ Auth::user()->name }}
                 </h1>
             </div>

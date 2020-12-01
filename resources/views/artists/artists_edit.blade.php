@@ -37,6 +37,9 @@
                         
                 {!! Form::submit('更新する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
+            
+        <div class="artistDeleteBtn">{!! link_to_route('artist.destroy', 'アーティストを削除する', ['id' => $artistEdit->id], ['class' => '']) !!}</div>
+            
         </div>
     </div>
 

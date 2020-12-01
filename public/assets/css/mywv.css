@@ -41,6 +41,10 @@ a:hover {
     border-radius: 40px;
 }
 
+.container{
+    margin-bottom: 200px
+}
+
 
 /*-----------------------------
     ナビゲーションバー類
@@ -265,8 +269,30 @@ a:hover {
         align-items: center;
         cursor: pointer;
         color: #fff;
-    }    
+    }
+    
+    .artistEditBtn a{
+        font-size: 14px;
+        color: #fff;
+    }
 
+    .artistDeleteBtn {
+        background-color: #E0006C;
+        height: 30px;
+        margin: 20px 0 0 auto;
+        padding: 0 20px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: #fff;
+    }
+    
+    .artistDeleteBtn a{
+        font-size: 14px;
+        color: #fff;
+    }
     
     
 /*-----------------------------

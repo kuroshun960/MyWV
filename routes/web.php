@@ -106,7 +106,9 @@ use Illuminate\Support\Facades\Route;
     //アーティストの詳細ページを更新するページ
     Route::get('/artist/{id}/edit', 'ArtistsController@edit')->name('artist.edit');
     //アーティストの詳細ページの更新処理
-    Route::put('/artist/{id}', 'ArtistsController@update')->name('artist.update'); 
+    Route::put('/artist/{id}', 'ArtistsController@update')->name('artist.update');
+    //アーティスト削除処理
+    Route::delete('/artist/{id}', 'ArtistsController@destroy')->name('artist.destroy'); 
     
     }); //認証付きルートはここまで
         

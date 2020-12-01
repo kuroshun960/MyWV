@@ -197,6 +197,10 @@ public function upload(Request $request)
         // idの値でメッセージを検索して取得
         $update_artist_data = Artist::findOrFail($id);
 
+
+    if (\Auth::id() === $update_artist_data->user_id) {
+
+
         if ($request->file('file')) {
             
             //バリデーションを正常に通過した時の処理
@@ -223,6 +227,10 @@ public function upload(Request $request)
         
 
             return redirect('/');
+        }
+    else{    
+        return redirect('/');
+    }
             
     }
     
@@ -236,10 +244,30 @@ public function upload(Request $request)
 
         $artistEdit = Artist::findOrFail($id);
         
-        // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
-
-        $artistEdit->delete();
-
+        
+        
+            if (\Auth::id() === $artistEdit->user_id) {
+                
+                
+                $artistEdit->tags()->each(function ($tag) {
+                    $tag->delete();
+                });
+        
+                $artistEdit->works()->each(function ($work) {
+                    $work->delete();
+                });
+                
+                $artistEdit->delete();
+        
+                return redirect('/');
+            }
+            
+            else{    
+                return redirect('/');
+            }
+            
+            
+    
     }
 
 

@@ -10,7 +10,8 @@
 
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-
+            
+            <div>
             {!! Form::model($artistEdit, ['route' => ['artist.update', $artistEdit->id], 'enctype' => 'multipart/form-data','method' => 'put']) !!}
             
                     {!! Form::label('name', 'アーティスト名:') !!}
@@ -37,10 +38,20 @@
                         
                 {!! Form::submit('更新する', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
+            </div>
             
-        {!! Form::model($artistEdit, ['route' => ['artist.destroy', $artistEdit->id], 'method' => 'delete']) !!}
-            {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!} 
+            <div>
+            
+            @if(Auth::id() === $artistEdit->user_id)
+            
+            {!! Form::model($artistEdit, ['route' => ['artist.destroy', $artistEdit->id], 'method' => 'delete']) !!}
+                {!! Form::submit('アーティストを削除', ['class' => 'btn btn-danger','onclick' => 'delete_alert(event);return false;']) !!}
+            {!! Form::close() !!} 
+            
+            @endif
+        
+            </div>
+        
         </div>
     </div>
 
@@ -48,4 +59,8 @@
     
     
 </div>
+
+
+
+
 @endsection

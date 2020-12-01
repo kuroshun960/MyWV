@@ -21,7 +21,7 @@
             
             
             <div class="tagAddbtn"><p>{!! link_to_route('tag.input', '+', ['id' => $artist->id], ['class' => '']) !!}</p></div>
-            <div class="artistEditBtn"><a href="#">アーティストを編集</a></div>
+            <div class="artistEditBtn">{!! link_to_route('artist.edit', 'アーティストを編集', ['id' => $artist->id], ['class' => '']) !!}</div>
             
         </div>
     </div>

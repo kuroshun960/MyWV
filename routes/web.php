@@ -93,16 +93,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*-----------------------------------------------------------------------------------------
     アーティスト登録機能
 -----------------------------------------------------------------------------------------*/
@@ -112,7 +102,11 @@ use Illuminate\Support\Facades\Route;
     //アーティストをアップロードする処理のルーティング
     Route::post('/upload/artist', 'ArtistsController@upload')->name('artist.post');
     //アーティストの詳細ページを表示するページ
-    Route::get('/artist/{id}', 'ArtistsController@show')->name('artist.show');    
+    Route::get('/artist/{id}', 'ArtistsController@show')->name('artist.show');
+    //アーティストの詳細ページを更新するページ
+    Route::get('/artist/{id}/edit', 'ArtistsController@edit')->name('artist.edit');
+    //アーティストの詳細ページの更新処理
+    Route::put('/artist/{id}', 'ArtistsController@update')->name('artist.update'); 
     
     }); //認証付きルートはここまで
         

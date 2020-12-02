@@ -21,7 +21,10 @@
             
             
             <div class="tagAddbtn"><p>{!! link_to_route('tag.input', '+', ['id' => $artist->id], ['class' => '']) !!}</p></div>
+            
+            @if (Auth::id() === $artist->user_id )
             <div class="artistEditBtn">{!! link_to_route('artist.edit', 'アーティストを編集', ['id' => $artist->id], ['class' => '']) !!}</div>
+            @endif
             
         </div>
     </div>

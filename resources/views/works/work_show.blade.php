@@ -14,7 +14,9 @@
                 {{ $workId->title }}
                 </h1>
             </div>
+            @if (Auth::id() === $workId->work_artist_userid())
             <div class="artistEditBtn">{!! link_to_route('work.edit', '作品を編集', ['id' => $workId->id], ['class' => '']) !!}</div>
+            @endif
         </div>
     </div>
     

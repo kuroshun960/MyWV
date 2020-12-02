@@ -33,13 +33,14 @@
             
             <div>
             
-            @if(Auth::id() === $workEdit->user_id)
-            
+            @if(Auth::id() === $workEdit->work_artist_userid())
+
             {!! Form::model($workEdit, ['route' => ['artist.destroy', $workEdit->id], 'method' => 'delete']) !!}
-                {!! Form::submit('アーティストを削除', ['class' => 'btn btn-danger','onclick' => 'delete_alert(event);return false;']) !!}
+                {!! Form::submit('作品を削除', ['class' => 'btn btn-danger','onclick' => 'delete_alert(event);return false;']) !!}
             {!! Form::close() !!} 
             
             @endif
+
         
             </div>
         

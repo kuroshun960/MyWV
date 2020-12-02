@@ -7,7 +7,18 @@
 
     <div class="tagaddList">
     @foreach ($artistTags as $artistTag)
-        <span>　{{ $artistTag->name }}　/</span>
+        <div class="tagaddList__inner">
+            <div class="d-flex align-items-center tagaddList__items">
+                <div class="tagaddList_tagname"><p><span>#</span>{{ $artistTag->name }}</p></div>
+                <div class="">
+                @if(Auth::id() === $artistTag->tags_artist_userid())
+                {!! Form::model($artistTag, ['route' => ['tag.destroy', $artistTag->id], 'method' => 'delete']) !!}
+                    {!! Form::submit('タグを削除', ['class' => 'tagDeleteBtn','onclick' => 'delete_alert(event);return false;']) !!}
+                {!! Form::close() !!} 
+                @endif
+                </div>
+            </div>
+        </div>
     @endforeach
     </div>
 

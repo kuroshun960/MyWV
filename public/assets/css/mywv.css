@@ -226,38 +226,6 @@ a:hover {
         text-align: center;
     }
     
-    .tagAddbtn{
-        width: 20px;
-        height: 20px;
-        border-radius: 15px;
-        background-color: #E0006C;
-        margin-left: 10px;
-        
-        justify-content: center; /*左右中央揃え*/
-        align-items: center;     /*上下中央揃え*/
-    }
-    
-    .tagAddbtn p{
-        text-align: center;
-        font-size: 18px;
-        line-height: 18px;
-        color: #fff;
-        margin: 0;
-    }
-    
-    .tagAddbtn p a{
-
-        color: #fff;
-    }
-    
-    .tagAddbtn__Frex{
-        align-items: center;
-    }
-    
-    .tagaddList{
-        margin-bottom: 20px;
-    }
-    
     .artistEditBtn{
         background-color: #E0006C;
         height: 30px;
@@ -293,6 +261,76 @@ a:hover {
         font-size: 14px;
         color: #fff;
     }
+    
+
+/*-----------------------------
+    タグ
+-------------------------------*/
+    
+    .tagAddbtn{
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #E0006C;
+        margin-left: 10px;
+        
+        justify-content: center; /*左右中央揃え*/
+        align-items: center;     /*上下中央揃え*/
+    }
+    
+    .tagAddbtn p{
+        text-align: center;
+        font-size: 18px;
+        line-height: 18px;
+        color: #fff;
+        margin: 0;
+    }
+    
+    .tagAddbtn p a{
+
+        color: #fff;
+    }
+    
+    .tagAddbtn__Frex{
+        align-items: center;
+    }
+    
+    .tagaddList{
+        padding: 20px 0 20px;
+    }
+    
+    .tagaddList__inner{
+        margin: 0 auto;
+        height: 50px;
+        width: 500px;
+    }
+    
+    .tagaddList__items{
+        justify-content: space-between;
+    }
+    
+    .tagaddList_tagname p{
+        font-size: 24px;
+        margin-bottom: 0;
+    }
+    
+    .tagDeleteBtn {
+        margin-left: 50px;
+        background-color: #E0006C;
+        height: 30px;
+        padding: 0 20px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: #fff;
+    }
+    
+    .tagDeleteBtn input{
+        color: #fff;
+    }
+    
     
     
 /*-----------------------------

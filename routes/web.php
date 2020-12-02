@@ -59,6 +59,10 @@ use Illuminate\Support\Facades\Route;
     Route::post('/create/artist/{id}/tag/', 'TagsController@create')->name('tag.post');
     //タグをアップロードするページ
     Route::get('/create/artist/{id}/tag/', 'TagsController@input')->name('tag.input');
+    //タグをアップロードするページ
+    Route::get('/create/artist/{id}/tag/', 'TagsController@input')->name('tag.input');
+    //タグを消す処理
+    Route::delete('/create/artist/{id}/tag/', 'TagsController@destroy')->name('tag.destroy');
     
 /*-----------------------------------------------------------------------------------------
     作品投稿機能
@@ -86,15 +90,10 @@ use Illuminate\Support\Facades\Route;
     Route::post('/users/{id}/follow', 'UserFollowController@store')->name('user.follow');
     //フォロー外す処理を実行する処理
     Route::delete('/users/{id}/unfollow', 'UserFollowController@destroy')->name('user.unfollow');
-    
     //フォロー一覧
     Route::get('/users/{id}/followings', 'UsersController@followings')->name('users.followings');
     //フォロワー一覧
     Route::get('/users/{id}/followers', 'UsersController@followers')->name('users.followers');
-
-
-
-
 
 
 

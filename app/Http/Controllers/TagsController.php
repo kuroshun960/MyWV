@@ -50,14 +50,39 @@ class TagsController extends Controller
 
 
         // 投稿後リダイレクト
-        return redirect('artist/'.$id);
+        return redirect('/create/artist/'.$id.'/tag');
         
     }
     
-    
 /*--------------------------------------------------------------------------
-    タグをアーティスト詳細ページに表示する処理
+    作品削除処理
 --------------------------------------------------------------------------*/
+    
+    public function destroy($id)
+    {
+        
+    $artistTag = Tag::findOrFail($id);
+        
+        //もし操作してるユーザーのidが、このタグのアーティストのuser_idとおなじだったら
+        if (\Auth::id() === $artistTag->tags_artist_userid()) {
+    
+        //このタグのアーティストのartist_idを格納
+        $artistPage = $artistTag->tags_artist_id();
+        
+    
+        //アーティスト（親）を削除
+        $artistTag->delete();
+
+        //このタグのアーティストのartist_idをURL挿入して、アーティストページにリダイレクトさせる。
+        return redirect('/create/artist/'.$artistPage.'/tag');
+        
+        }else{
+            return redirect('/create/artist/'.$artistPage);
+        }
+        
+
+   
+    }
     
 
 

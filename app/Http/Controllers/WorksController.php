@@ -212,24 +212,21 @@ public function upload(Request $request, $id)
 
 
 /*--------------------------------------------------------------------------
-    アーティスト削除
+    作品削除処理
 --------------------------------------------------------------------------*/
     
     public function destroy($id)
     {
         
     $workEdit = Work::findOrFail($id);
-        
-    if (\Auth::id() === $workEdit->user_id) {
+
     
         //アーティスト（親）を削除
         $workEdit->delete();
 
         return redirect('/');
         
-        }else{    
-            return redirect('/');
-        }
+
    
     }
     

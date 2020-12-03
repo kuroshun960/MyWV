@@ -147,6 +147,39 @@ a:hover {
         align-items:center;
     }
     
+    .artistList__row__items .wappen{
+        position: relative;
+    }
+    
+    .artistList__row__items .wappen:before{
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        left: 10px;
+        transform: translate(0%, 0%);
+        z-index: 2;
+        border-style: solid;
+        border-width: 35px 35px 0 0;
+        border-color: #007bff transparent transparent transparent;
+        content: "";
+        
+    }
+    
+        .artistList__row__items .wappen:after{
+        position: absolute;
+        display: inline-block;
+        font-size: 5px;
+        line-height: 1;
+        font-weight: bold;
+        top: 5px;
+        left: 12px;
+        transform: translate(0%, 0%);
+        transform: rotate(-45deg);
+        z-index: 3;
+        content: "my";
+        color: #fff;
+    }
+    
     .artistList__row__items p{
         text-align: center;
     }

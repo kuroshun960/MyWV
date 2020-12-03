@@ -19,8 +19,8 @@
 
                 @if(Auth::user()->id === $follow->user_id)
                 <div class="artistList__row__items">
-                    <a href="{{URL::to('artist/'.$follow->id)}}">
-                        <div class="artistPanel akawaku">
+                    <a class="wappen" href="{{URL::to('artist/'.$follow->id)}}">
+                        <div class="artistPanel">
                             <img src="{{ $follow->path }}" width="100%">
                         </div>
                     </a>

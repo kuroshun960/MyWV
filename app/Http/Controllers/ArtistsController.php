@@ -111,16 +111,17 @@ public function upload(Request $request)
     
     
 /*--------------------------------------------------------------------------
-    アーティスト画像をページに表示するアクション
+    タイムライン
 --------------------------------------------------------------------------*/
     
     
     public function output()
     {
+        
+/*--------------------------------------------------------------------------
         //現在ログイン中のユーザIDを変数$user_idに格納する
         $user_id = Auth::id();
         
-
         //artistテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$artistsに格納する
         //artistテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$artistsに格納する
         
@@ -129,6 +130,24 @@ public function upload(Request $request)
             'artists' => $artists
             
             ]);
+--------------------------------------------------------------------------*/
+            
+        $data = [];
+        if (\Auth::check()) {
+            // 認証済みユーザ（閲覧者）を取得
+            $user = \Auth::user();
+            // ユーザとフォロー中ユーザの投稿の一覧を作成日時の降順で取得
+            $followingArtist = $user->followingArtist()->orderBy('created_at', 'desc')->paginate(10);
+
+            $data = [
+                'user' => $user,
+                'follows' => $followingArtist,
+            ];
+        }
+
+        // Welcomeビューでそれらを表示
+        return view('welcome', $data);
+            
     }
     
     

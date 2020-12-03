@@ -121,6 +121,16 @@ a:hover {
 
     }
     
+    .akawaku{
+        border: solid 2px #ffd3d3;
+    }
+    
+    .userTimeline{
+        font-size: 24px;
+        font-weight: 600;
+        padding-left: 10px
+    }
+    
     .artistList{
         margin-top: 20px;
     }

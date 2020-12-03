@@ -3,11 +3,9 @@
     <div class="userdetails_container_inner">
         <div class="d-flex justify-content-around alignItemsCenter">
             
-            <div class="">
-                <h1>
-                <img class="mr-2 userIconimage" src="{{ Auth::user()->path }}" alt="">
-                {{ Auth::user()->name }}
-                </h1>
+            <div>
+                <h1><a href="/users/{{Auth::user()->id}}"><img class="userIconimage" src="{{ Auth::user()->path }}" alt="">
+                {{ Auth::user()->name }}</a><span class="userTimeline">のタイムライン</span></h1>
             </div>
             
         </div>
@@ -17,17 +15,32 @@
     <div class="artistList">
         <div class="artistList__row d-flex flex-wrap col-sm-12">
             
-            @foreach ($artists as $artist)
+            @foreach ($follows as $follow)
 
-            <div class="artistList__row__items">
-                <a href="{{URL::to('artist/'.$artist->id)}}">
-                    <div class="artistPanel">
-                        <img src="{{ $artist->path }}" width="100%">
-                    </div>
-                </a>
-                <p>{!! link_to_route('artist.show', $artist->name, ['id' => $artist->id]) !!}</p>
-
-            </div>
+                @if(Auth::user()->id === $follow->user_id)
+                <div class="artistList__row__items">
+                    <a href="{{URL::to('artist/'.$follow->id)}}">
+                        <div class="artistPanel akawaku">
+                            <img src="{{ $follow->path }}" width="100%">
+                        </div>
+                    </a>
+                    <p>{!! link_to_route('artist.show', $follow->name, ['id' => $follow->id]) !!}</p>
+                </div>
+                
+                @else
+                
+                <div class="artistList__row__items">
+                    <a href="{{URL::to('artist/'.$follow->id)}}">
+                        <div class="artistPanel">
+                            <img src="{{ $follow->path }}" width="100%">
+                        </div>
+                    </a>
+                    <p>{!! link_to_route('artist.show', $follow->name, ['id' => $follow->id]) !!}</p>
+                </div>
+                
+                @endif
+        
+        
 
             @endforeach
             

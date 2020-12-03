@@ -23,7 +23,7 @@
     
     
     <div class="artistList">
-        <div class="artistList__row d-flex flex-wrap col-sm-12">
+        <div class="artistList__row d-flex flex-wrap">
             
             @foreach ($userArtists as $userArtist)
 

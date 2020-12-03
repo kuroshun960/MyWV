@@ -6,7 +6,7 @@
 
 <div class="container">
     
-    <div class="userdetails_container_inner">
+    <div class="workdetails_container_inner">
         <div class="d-flex tagAddbtn__Frex">
             <div class="">
                 <h1>

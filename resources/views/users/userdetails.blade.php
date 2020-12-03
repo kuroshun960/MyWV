@@ -4,7 +4,7 @@
         <div class="d-flex justify-content-around alignItemsCenter">
             
             <div>
-                <h1><a href="/users/{{Auth::user()->id}}"><img class="userIconimage" src="{{ Auth::user()->path }}" alt="">
+                <h1><a class="authname" href="/users/{{Auth::user()->id}}"><img class="userIconimage" src="{{ Auth::user()->path }}" alt="">
                 {{ Auth::user()->name }}</a><span class="userTimeline">のタイムライン</span></h1>
             </div>
             
@@ -13,7 +13,7 @@
     
     
     <div class="artistList">
-        <div class="artistList__row d-flex flex-wrap col-sm-12">
+        <div class="artistList__row d-flex flex-wrap">
             
             @foreach ($follows as $follow)
 

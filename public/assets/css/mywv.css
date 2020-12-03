@@ -147,6 +147,10 @@ a:hover {
         align-items:center;
     }
     
+    .artistList__row{
+        margin: 0;
+    }
+    
     .artistList__row__items .wappen{
         position: relative;
     }
@@ -243,6 +247,14 @@ a:hover {
         color: #E0006C;
     }
     
+/*-----------------------------
+    ユーザーリスト
+-------------------------------*/
+    
+    .usersList{
+        margin-top: 20px;
+    }
+    
     
 /*-----------------------------
     アーティスト詳細ページ
@@ -309,6 +321,10 @@ a:hover {
 /*-----------------------------
     タグ
 -------------------------------*/
+    
+    .phoneusericon{
+        display: none;
+    }
     
     .tagAddbtn{
         width: 20px;

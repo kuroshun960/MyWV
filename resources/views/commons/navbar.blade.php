@@ -5,9 +5,18 @@
         <a class="navbar-brand headerMywvLogo" href="/">MyWV</a>
         
         {{-- トグルボタン --}}
+        <div class="d-flex">
+            
+        {{-- スマホのみ、ナビゲーションバーにユーザーアイコンを表示する --}}
+        @if (Auth::check())
+        <div class="phoneusericon"><img class="mr-2 userIconimage" src="{{ Auth::user()->path }}" alt=""></div>
+        @endif
+        {{----------------------}}
+        
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>
+        </div>
 
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
@@ -18,8 +27,10 @@
                     {{-- ドロップダウンメニュー --}}
                     <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle nav-item-Mywv" data-toggle="dropdown">
+                        <div class="toggleinIcon">
                         <span class="navUsername">{{ Auth::user()->name }}</span>
                         <img class="mr-2 userIconimage" src="{{ Auth::user()->path }}" alt="">
+                        </div>
                     </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- ユーザ詳細ページへのリンク --}}

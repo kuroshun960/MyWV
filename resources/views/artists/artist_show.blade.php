@@ -4,7 +4,7 @@
 <div class="container">
 
 
-    <div class="userdetails_container_inner">
+    <div class="artistdetails_container_inner">
         <div class="d-flex tagAddbtn__Frex">
             <div class="">
                 <h1>
@@ -31,7 +31,7 @@
     
     
     <div class="artistList">
-        <div class="artistList__row d-flex flex-wrap col-sm-12">
+        <div class="artistList__row d-flex flex-wrap">
             
             @foreach ($artistWorks as $artistWork)
 

@@ -161,6 +161,7 @@ a {
     .descriptionArea {
         padding: 20px 20px;
         margin-top: 30px;
+        border-radius: 0px;
     }
 
     .artistdetails_container_inner > .d-flex{
@@ -215,7 +216,9 @@ a {
         font-size: 12px;
     }
 
-
+    .tagAddbtn__Frex h1{
+        margin-bottom: 10px;
+    }
 
 
 

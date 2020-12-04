@@ -1,4 +1,4 @@
-<header class="mb-4">
+<header class="">
     
     <nav class="navbar navbar-expand-sm mywvNavbar">
         {{-- トップページへのリンク --}}

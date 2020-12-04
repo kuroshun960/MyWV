@@ -4,7 +4,7 @@
 <div class="container">
 
 
-<div class="container">
+
     
     <div class="workdetails_container_inner">
         <div class="d-flex tagAddbtn__Frex">
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-</div>
+
 
 
 

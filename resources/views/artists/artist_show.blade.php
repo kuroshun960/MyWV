@@ -1,7 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<style type="text/css">
+
+.backgroundBlur {
+  background:url({{ $artist->path }}) no-repeat center center;
+  background-size: contain;
+  filter:brightness(100%);
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.backgroundBlur::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: inherit;
+  filter: blur(100px);
+  top: -500px;
+  right: -500px;
+  bottom: -500px;
+  left: -500px;
+  z-index: -1;
+  
+}
+</style>
+
+<div class="backgroundBlur">
+<div class="container" style="background-image">
 
 
     <div class="artistdetails_container_inner">
@@ -92,6 +120,5 @@
     </div>
 
 </div>
-
-
+</div>
 @endsection

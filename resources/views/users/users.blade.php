@@ -1,5 +1,5 @@
 @if (count($users) > 0)
-    <ul class="usersList list-unstyled d-flex">
+    <ul class="usersList list-unstyled d-flex flex-wrap">
         @foreach ($users as $user)
             <li class="media ml-4">
                 {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}

@@ -19,11 +19,11 @@
                     {!! Form::password('password', ['class' => 'form-control','placeholder' => 'パスワード']) !!}
                 </div>
 
-                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('ログイン', ['class' => 'loginBtn']) !!}
             {!! Form::close() !!}
 
             {{-- ユーザ登録ページへのリンク --}}
-            <p class="mt-2">まだ登録してない方はこちら {!! link_to_route('signup.get', '今すぐ無料登録!') !!}</p>
+            <p class="mt-4 notUser">まだ登録してない方は {!! link_to_route('signup.get', '今すぐ無料登録!',['class'=>'notUsertext']) !!}</p>
         </div>
     </div>
     

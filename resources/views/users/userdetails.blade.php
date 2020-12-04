@@ -47,7 +47,7 @@
                     
             <div class="artistList__row__items">
                 {{--<a href="#"><div class="artistPanel__add"><p>+</p></div></a>--}}
-                {!! link_to_route('artist.input', '+', [], ['class' => 'artistPanel__add']) !!}
+                {!! link_to_route('artist.input', '', [], ['class' => 'artistPanel__add']) !!}
             </div>
 
 

@@ -37,7 +37,7 @@
                     {!! Form::password('password_confirmation', ['class' => 'form-control','placeholder' => 'パスワード（確認）']) !!}
                 </div>
 
-                {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('登録', ['class' => 'loginBtn']) !!}
             {!! Form::close() !!}
         </div>
     </div>

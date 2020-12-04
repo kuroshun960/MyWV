@@ -53,7 +53,9 @@
        
             <div class="artistList__row__items">
                 {{--<a href="#"><div class="artistPanel__add"><p>+</p></div></a>--}}
-                {!! link_to_route('work.input', '+', ['id' => $artist->id], ['class' => 'artistPanel__add']) !!}
+                <div class="">
+                {!! link_to_route('work.input', '', ['id' => $artist->id], ['class' => 'artistPanel__add']) !!}
+                </div>
             </div>
 
             @endif
@@ -74,14 +76,20 @@
         </div>
         
         <div class="snsUrl">
-            <p><span></span>{{ $artist->officialHp }}</p>
-            <p><span></span>{{ $artist->twitter }}</p>
-            <p><span></span>{{ $artist->insta }}</p>
+            
+            @if( $artist->officialHp ==! null)
+            <p><span class="fa fa-desktop mr-2"></span>{{ $artist->officialHp }}</p>
+            @endif
+            @if( $artist->twitter ==! null)
+            <p><span class="fab fa-twitter mr-2"></span>{{ $artist->twitter }}</p>
+            @endif
+            @if( $artist->insta ==! null)
+            <p><span class="fab fa-instagram mr-2"></span>{{ $artist->insta }}</p>
+            @endif
         </div>
         
         </div>
     </div>
-    
 
 </div>
 

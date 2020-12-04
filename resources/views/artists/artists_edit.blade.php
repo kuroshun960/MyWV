@@ -14,8 +14,10 @@
             <div>
             {!! Form::model($artistEdit, ['route' => ['artist.update', $artistEdit->id], 'enctype' => 'multipart/form-data','method' => 'put']) !!}
             
+                    <div class="form-group">
+            
                     {!! Form::label('name', 'アーティスト名:') !!}
-                    {!! Form::text('name', old('content'), ['class' => 'form-control']) !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
                     <br>
                     {!! Form::label('description', '説明:') !!}
                     {!! Form::text('description', old('description'), ['class' => 'form-control']) !!}
@@ -36,7 +38,9 @@
                     {!! Form::file('file', ['class' => 'form-control']) !!}
                     <br>
                         
-                {!! Form::submit('更新する', ['class' => 'btn btn-primary btn-block']) !!}
+                    {!! Form::submit('更新する', ['class' => 'btn btn-primary btn-block']) !!}
+                    
+                    </div>
             {!! Form::close() !!}
             </div>
             
@@ -45,7 +49,9 @@
             @if(Auth::id() === $artistEdit->user_id)
             
             {!! Form::model($artistEdit, ['route' => ['artist.destroy', $artistEdit->id], 'method' => 'delete']) !!}
+            <div class="form-group">
                 {!! Form::submit('アーティストを削除', ['class' => 'btn btn-danger','onclick' => 'delete_alert(event);return false;']) !!}
+            </div>
             {!! Form::close() !!} 
             
             @endif

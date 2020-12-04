@@ -18,23 +18,23 @@
     <div class="form-group">
         @csrf
         
-        {!! Form::label('name', '名前:') !!}
-        {!! Form::text('name', old('content'), ['class' => 'form-control']) !!}
+        
+        {!! Form::text('name', old(''), ['class' => 'form-control','placeholder' => '名前']) !!}
         <br>
-        {!! Form::label('description', '説明:') !!}
-        {!! Form::text('description', old('description'), ['class' => 'form-control']) !!}
+
+        {!! Form::text('description', old(''), ['class' => 'form-control','placeholder' => '説明']) !!}
         <br>
-        {!! Form::label('style', 'スタイル:') !!}
-        {!! Form::text('style', old('style'), ['class' => 'form-control']) !!}
+
+        {!! Form::text('style', old(''), ['class' => 'form-control','placeholder' => 'スタイル']) !!}
         <br>
-        {!! Form::label('officialHp', '公式サイト:') !!}
-        {!! Form::text('officialHp', old('officialHp'), ['class' => 'form-control']) !!}
+
+        {!! Form::text('officialHp', old(''), ['class' => 'form-control','placeholder' => '公式サイト']) !!}
         <br>
-        {!! Form::label('twitter', 'Twitter:') !!}
-        {!! Form::text('twitter', old('twitter'), ['class' => 'form-control']) !!}
+
+        {!! Form::text('twitter', old(''), ['class' => 'form-control','placeholder' => 'Twitter']) !!}
         <br>
-        {!! Form::label('insta', 'Instagram:') !!}
-        {!! Form::text('insta', old('insta'), ['class' => 'form-control']) !!}
+
+        {!! Form::text('insta', old(''), ['class' => 'form-control','placeholder' => 'Instagram']) !!}
         <br>
         {!! Form::label('file', '画像ファイル:') !!}
         {!! Form::file('file', ['class' => 'form-control']) !!}

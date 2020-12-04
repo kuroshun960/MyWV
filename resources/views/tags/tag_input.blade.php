@@ -22,13 +22,12 @@
     @endforeach
     </div>
 
-{!! Form::model($artistId, ['route' => ['tag.post', $artistId->id], 'enctype' => 'multipart/form-data']) !!}
-
+{{--{!! Form::model($artistId, ['route' => ['tag.post', $artistId->id], 'enctype' => 'multipart/form-data']) !!}--}}
+{!! Form::open([route('tag.post', ['id' => $artistId->id])]) !!}
     <div class="form-group">
         @csrf
         
-        {!! Form::label('name', 'タグ:') !!}
-        {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+        {!! Form::text('name', old('名前'), ['class' => 'form-control','placeholder' => 'タグ名']) !!}
         <br>
 
         {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block']) !!}

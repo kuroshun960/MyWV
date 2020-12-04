@@ -7,7 +7,7 @@
    
     <div class="userdetails_container_inner">
         <div class="d-flex justify-content-around alignItemsCenter">
-            <div><a href="{{ route('users.followings', ['id' => $user->id]) }}">follow :　{{ $user->followings_count }}</a></div>
+            <div class="followcount"><a href="{{ route('users.followings', ['id' => $user->id]) }}">follow :　{{ $user->followings_count }}</a></div>
             
             <div class="d-flex justify-content-around alignItemsCenter">
                 <h1>
@@ -17,8 +17,15 @@
                     @include('user_follow.follow_button')
             </div>
             
-            <div><a href="{{ route('users.followers', ['id' => $user->id]) }}">follow :　{{ $user->followers_count }}</a></div>
+            <div class="followcount"><a href="{{ route('users.followers', ['id' => $user->id]) }}">follower :　{{ $user->followers_count }}</a></div>
+            
         </div>
+        
+        <div class="phone_followcount" style="">
+        <div><a href="{{ route('users.followings', ['id' => $user->id]) }}">follow :　{{ $user->followings_count }}</a></div>
+        <div><a href="{{ route('users.followers', ['id' => $user->id]) }}">follower :　{{ $user->followers_count }}</a></div>
+        </div>
+        
     </div>
     
     
@@ -44,7 +51,7 @@
             @if (Auth::id() === $user->id )
             <div class="artistList__row__items">
                 {{--<a href="#"><div class="artistPanel__add"><p>+</p></div></a>--}}
-                {!! link_to_route('artist.input', '+', [], ['class' => 'artistPanel__add']) !!}
+                {!! link_to_route('artist.input', '', [], ['class' => 'artistPanel__add']) !!}
             </div>
             @endif
 

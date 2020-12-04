@@ -69,8 +69,7 @@ class UsersController extends Controller
         // 画像のアップ形式のバリデーション
         $this->validate($request, [
             'file' => [
-                // 必須
-                'required',
+
                 // アップロードされたファイルであること
                 'file',
                 // 画像ファイルであること
@@ -80,8 +79,11 @@ class UsersController extends Controller
             ]
         ]);
         
+            // idの値でメッセージを検索して取得
+            $userSetting = User::findOrFail($id);
+        
 
-        if ($request->file('file')->isValid([])) {
+        if ($request->file('file')) {
             
             //バリデーションを正常に通過した時の処理
             //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する
@@ -90,25 +92,20 @@ class UsersController extends Controller
             //S3へのファイルアップロード処理の時の情報が格納された変数を用いてアップロードされた画像へのリンクURLを変数に格納する
             $path = Storage::disk('s3')->url($upload_info);
             
+            $userSetting->path = $path;
+            }
             
-            // idの値でメッセージを検索して取得
-            $userSetting = User::findOrFail($id);
+
             // メッセージを更新
             $userSetting->name = $request->name;
             $userSetting->email = $request->email;
-            $userSetting->path = $path;
+            
             $userSetting->save();
             
 
             return redirect('/');
+    
             
-        }else{
-            //バリデーションではじかれた時の処理
-            return redirect('/');
-        }
-
-        // トップページへリダイレクトさせる
-        return redirect('/');
     }
     
     

@@ -36,6 +36,10 @@ class TagsController extends Controller
 
     public function create(Request $request, $id)
     {        
+        
+        $request->validate([
+            'name' => 'required|max:20',
+        ]);
 
         //modelフォームから送られてきたidで目的のアーティストを取得
         $artist = Artist::findOrFail($id);

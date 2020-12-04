@@ -12,7 +12,6 @@
         <div class="phoneusericon"><img class="mr-2 userIconimage" src="{{ Auth::user()->path }}" alt=""></div>
         @endif
         {{----------------------}}
-        
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>

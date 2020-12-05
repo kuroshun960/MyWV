@@ -169,6 +169,13 @@ a {
         padding: 15px;
     }
     
+    .artistList__row__items p {
+    text-align: center;
+    width: 110px;
+    line-height: 1;
+    margin-top: 5px;
+}
+    
     
     
 /*-----------------------------

@@ -19,7 +19,7 @@
         @csrf
         
         
-        {!! Form::text('name', old(''), ['class' => 'form-control','placeholder' => '名前']) !!}
+        {!! Form::text('name', old(''), ['class' => 'form-control','placeholder' => 'アーティスト名']) !!}
         <br>
 
         {!! Form::text('description', old(''), ['class' => 'form-control','placeholder' => '説明']) !!}

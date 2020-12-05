@@ -106,13 +106,13 @@
         <div class="snsUrl">
             
             @if( $artist->officialHp ==! null)
-            <p><span class="fa fa-desktop mr-2"></span>{{ $artist->officialHp }}</p>
+            <p><a><span class="fa fa-desktop mr-2"></span>{{ $artist->officialHp }}</a></p>
             @endif
             @if( $artist->twitter ==! null)
-            <p><span class="fab fa-twitter mr-2"></span>{{ $artist->twitter }}</p>
+            <p><a><span class="fab fa-twitter mr-2"></span>{{ $artist->twitter }}</a></p>
             @endif
             @if( $artist->insta ==! null)
-            <p><span class="fab fa-instagram mr-2"></span>{{ $artist->insta }}</p>
+            <p><a><span class="fab fa-instagram mr-2"></span>{{ $artist->insta }}</a></p>
             @endif
         </div>
         

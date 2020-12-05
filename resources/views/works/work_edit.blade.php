@@ -28,6 +28,7 @@
                     {!! Form::file('file', ['class' => 'form-control']) !!}
                     <br>
                         
+                    {!! Form::submit('更新する', ['class' => 'btn btn-primary btn-block']) !!}
                 </div>
                         
             {!! Form::close() !!}

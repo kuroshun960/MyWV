@@ -31,4 +31,16 @@ class Artist extends Model
         $this->loadCount('tags','works');
     }
     
+    public function artist_user_id()
+    {
+        
+        $users = $this->user()->get();
+        foreach ($users as $user){}
+        
+        return $user->id;
+        
+    }
+        
+
+    
 }

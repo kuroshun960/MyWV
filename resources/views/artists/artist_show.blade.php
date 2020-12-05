@@ -34,18 +34,22 @@
 
     <div class="artistdetails_container_inner">
         <div class="d-flex tagAddbtn__Frex">
-            <div class="">
+            <div class="workshow_title d-flex">
+            
+                <div class="arrow_r_box">
+                    <a class="arrow_r" href="{{ '/users/'.$artist->artist_user_id() }}"></a>
+                </div>
                 <h1>
                 <img class="mr-2 rounded mywv_artistIcon" src="{{ $artist->path }}" width="100%">
                 {{ $artist->name }}
                 </h1>
+            
+            
             </div>
-            
-            
             @foreach ($artistTags as $artistTag)
             <span class="artistTags">　{{ $artistTag->name }}　/</span>
             @endforeach
-
+            
             
             
             <div class="tagAddbtn"><p>{!! link_to_route('tag.input', '+', ['id' => $artist->id], ['class' => '']) !!}</p></div>

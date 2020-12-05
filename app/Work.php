@@ -17,13 +17,23 @@ class Work extends Model
         return $this->belongsTo(Artist::class);
     }
     
-        public function work_artist_userid()
+    public function work_artist_userid()
     {
         
         $artists = $this->artist()->get();
         foreach ($artists as $artist){}
         
         return $artist->user_id;
+        
+    }
+    
+    public function work_artist_id()
+    {
+        
+        $artists = $this->artist()->get();
+        foreach ($artists as $artist){}
+        
+        return $artist->id;
         
     }
     

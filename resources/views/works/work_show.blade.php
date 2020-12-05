@@ -8,8 +8,11 @@
     
     <div class="workdetails_container_inner">
         <div class="d-flex tagAddbtn__Frex">
-            <div class="">
-                <h1>
+            <div class="workshow_title d-flex">
+                <div class="arrow_r_box">
+                    <a class="arrow_r" href="{{'/artist/'.$workId->work_artist_id()}}"></a>
+                </div>
+                <h1 class="workshow_title_text">
                 <img class="mr-2 rounded mywv_artistIcon" src="{{ $workId->path }}" width="100%">
                 {{ $workId->title }}
                 </h1>
@@ -28,7 +31,7 @@
             <div class="workDescriptionArea__inner">
                 
             <h1>
-            <p>{{ $workId->title }}</p>
+            {{ $workId->title }}
             </h1>
                 
             <div class="workDescription">

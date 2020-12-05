@@ -5,6 +5,9 @@
 
 {{-- {!! Form::open(['route' => 'tag.post', 'enctype' => 'multipart/form-data']) !!}  --}}
 
+    <div class="arrow_r_box">
+        <a class="arrow_r" href="{{ '/artist/'.$artistId->id }}"></a>
+    </div>
     <div class="tagaddList">
     @foreach ($artistTags as $artistTag)
         <div class="tagaddList__inner">

@@ -254,6 +254,11 @@ a {
     margin-bottom: 0px;
     }
     
+    .tagaddList__inner {
+    margin: 0 auto;
+    /* height: 50px; */
+    padding: 10px 0px;
+}
     
     
 
